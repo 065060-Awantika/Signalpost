@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signalpost | Company Intelligence</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="brand">
+            <div class="brand-mark">S</div>
+
+            <div>
+                <div class="brand-name">Signalpost</div>
+                <div class="brand-subtitle">Company Intelligence</div>
+            </div>
+        </div>
+
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            Intelligence Engine Online
+        </div>
+    </header>
+
+
+    <!-- Main -->
+    <main class="container">
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <div class="hero-badge">
+                <span>✦</span>
+                Public Company Intelligence
+            </div>
+
+            <h1>
+                Turn a company number into
+                <span>verified intelligence.</span>
+            </h1>
+
+            <p class="hero-description">
+                Signalpost researches public company information,
+                connects facts to evidence, and verifies that the
+                information belongs to the right company.
+            </p>
+
+            <!-- Search -->
+            <div class="search-card">
+
+                <div class="search-label">
+                    Norwegian Organization Number
+                </div>
+
+                <div class="search-row">
+
+                    <div class="input-wrapper">
+                        <span class="input-icon">⌕</span>
+
+                        <input
+                            id="organizationNumber"
+                            type="text"
+                            placeholder="e.g. 923609016"
+                            maxlength="11"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <button
+                        id="researchButton"
+                        class="research-button"
+                    >
+                        <span>Research Company</span>
+                        <span class="button-arrow">→</span>
+                    </button>
+
+                </div>
+
+                <div class="search-hint">
+                    Enter a valid 9-digit Norwegian organization number.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Loading -->
+        <section
+            id="loadingState"
+            class="state-card hidden"
+        >
+            <div class="loader"></div>
+
+            <div>
+                <h3>Researching company...</h3>
+
+                <p>
+                    Signalpost is checking the registry, discovering
+                    public sources, extracting facts and verifying evidence.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Error -->
+        <section
+            id="errorState"
+            class="state-card error-state hidden"
+        >
+            <div class="state-icon">!</div>
+
+            <div>
+                <h3>Research could not be completed</h3>
+                <p id="errorMessage">
+                    Something went wrong while researching this company.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Company Profile -->
+        <section
+            id="companySection"
+            class="company-section hidden"
+        >
+
+            <!-- Company Header -->
+            <div class="company-header glass-card">
+
+                <div class="company-identity">
+
+                    <div
+                        id="companyInitial"
+                        class="company-avatar"
+                    >
+                        S
+                    </div>
+
+                    <div>
+                        <div class="verified-label">
+                            <span>✓</span>
+                            VERIFIED COMPANY
+                        </div>
+
+                        <h2 id="companyName">
+                            Company Name
+                        </h2>
+
+                        <div class="company-meta">
+                            <span id="companyOrgNumber">
+                                Org No. —
+                            </span>
+
+                            <span class="meta-divider">•</span>
+
+                            <span id="companyAddress">
+                                —
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button
+                    id="newResearchButton"
+                    class="secondary-button"
+                >
+                    + New Research
+                </button>
+
+            </div>
+
+
+            <!-- Metrics -->
+            <div class="metrics-grid">
+
+                <div class="metric-card">
+                    <div class="metric-icon purple">◆</div>
+
+                    <div>
+                        <div class="metric-label">
+                            Total Facts
+                        </div>
+
+                        <div
+                            id="totalFacts"
+                            class="metric-value"
+                        >
+                            —
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="metric-card">
+                    <div class="metric-icon green">✓</div>
+
+                    <div>
+                        <div class="metric-label">
+                            Registry Facts
+                        </div>
+
+                        <div
+                            id="registryFacts"
+                            class="metric-value"
+                        >
+                            —
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="metric-card">
+                    <div class="metric-icon blue">◎</div>
+
+                    <div>
+                        <div class="metric-label">
+                            Sources Checked
+                        </div>
+
+                        <div
+                            id="sourcesChecked"
+                            class="metric-value"
+                        >
+                            —
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="metric-card">
+                    <div class="metric-icon orange">↻</div>
+
+                    <div>
+                        <div class="metric-label">
+                            Research Status
+                        </div>
+
+                        <div
+                            id="researchStatus"
+                            class="metric-value status-value"
+                        >
+                            —
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Main Content -->
+            <div class="content-grid">
+
+                <!-- Facts -->
+                <div class="glass-card facts-panel">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <span class="section-eyebrow">
+                                COMPANY PROFILE
+                            </span>
+
+                            <h3>Key Intelligence</h3>
+                        </div>
+
+                        <span class="live-pill">
+                            LIVE
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="factsContainer"
+                        class="facts-container"
+                    >
+
+                        <div class="empty-facts">
+                            Research a company to see extracted facts.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Sources -->
+                <div class="glass-card sources-panel">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <span class="section-eyebrow">
+                                EVIDENCE
+                            </span>
+
+                            <h3>Sources</h3>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="sourcesContainer"
+                        class="sources-container"
+                    >
+
+                        <div class="empty-facts">
+                            Sources will appear here after research.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div>
+            Signalpost
+            <span>·</span>
+            Public Company Intelligence
+        </div>
+
+        <div>
+            Evidence-first research
+        </div>
+
+    </footer>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>

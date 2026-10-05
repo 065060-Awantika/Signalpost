@@ -14,7 +14,6 @@ class CompanyRepository:
         self,
         organization_number: str,
     ) -> Company | None:
-
         return (
             self.db.query(Company)
             .filter(
@@ -28,7 +27,6 @@ class CompanyRepository:
         self,
         registry_company: RegistryCompany,
     ) -> Company:
-
         existing = self.get_by_organization_number(
             registry_company.organization_number
         )
